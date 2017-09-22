@@ -1,0 +1,20 @@
+#!/bin/python3
+
+import sys
+from functools import reduce
+from fractions import gcd
+
+def getTotalX(a, b):
+    lcm=reduce(lambda x,y: x*y//gcd(x,y),a)
+    gc=reduce(gcd,b)
+    s=sum(1 for x in range(lcm,gc+1,lcm) if gc%x==0)
+    return s
+
+
+if __name__ == "__main__":
+    n, m = input().strip().split(' ')
+    n, m = [int(n), int(m)]
+    a = list(map(int, input().strip().split(' ')))
+    b = list(map(int, input().strip().split(' ')))
+    total = getTotalX(a, b)
+    print(total)
