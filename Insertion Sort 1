@@ -1,0 +1,19 @@
+len=int(input())
+li=[ int(x) for x in input().split() ]
+val=li[len-1]
+for i in range(len-2,-1,-1):
+    if li[i]>val:
+        li[i+1]=li[i]
+    else:
+        li[i+1]=val
+        break
+    for x in li:print(x, end=" ")
+    print()
+    if i==0:
+        li[i]=val       
+for x in li:print(x, end=" ")
+print()
+    
+
+
+
