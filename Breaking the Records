@@ -1,0 +1,20 @@
+#!/bin/python3
+
+import sys
+
+def getRecord(s):
+    cmin=cmax=0
+    min=max=s[0]
+    for i in range(1,len(s)):
+        if s[i]<min:
+            min=s[i]
+            cmin +=1
+        elif s[i]>max:
+            max=s[i]
+            cmax+=1
+    return cmax,cmin
+
+n = int(input().strip())
+s = list(map(int, input().strip().split(' ')))
+result = getRecord(s)
+print (" ".join(map(str, result)))
