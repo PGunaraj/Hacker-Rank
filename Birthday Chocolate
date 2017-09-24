@@ -1,0 +1,27 @@
+#!/bin/python3
+
+import sys
+
+def solve(n, s, d, m):
+    if m==1:
+        if d in s:
+            return 1
+        else:
+            return 0
+    else:
+        c=0
+        start=0
+        while start+m < n+1:
+            l=s[start:start+m]
+            if sum(l) == d:
+                c+=1
+            start+=1
+        return c
+
+
+n = int(input().strip())
+s = list(map(int, input().strip().split(' ')))
+d, m = input().strip().split(' ')
+d, m = [int(d), int(m)]
+result = solve(n, s, d, m)
+print(result)
